@@ -21,6 +21,7 @@ class _LoginPageState extends State<LoginPage> with ValidationMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: BlocConsumer<AuthBloc, AuthState>(
@@ -29,7 +30,7 @@ class _LoginPageState extends State<LoginPage> with ValidationMixin {
               showSnackBar(context, state.message);
             }
             if (state is AuthSuccessState) {
-              Navigator.pushReplacementNamed(context, AppRoutes.homePage);
+              context.read<AuthBloc>().add(AuthCheckRequested());
             }
             if (state is AuthAuthenticated) {
               if (state.user.userName != null) {

@@ -15,7 +15,6 @@ class AppTheme {
     return ThemeData(
       dividerTheme: const DividerThemeData(color: Colors.transparent),
       scaffoldBackgroundColor: AppColor.backgroundColor,
-     
       inputDecorationTheme: InputDecorationTheme(
         enabledBorder: _border(),
         border: _border(),

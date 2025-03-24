@@ -1,0 +1,121 @@
+{
+    "invested_funds": [
+      {
+        "fund_name": "HDFC Small Cap Direct Growth",
+        "rating": 3,
+        "returns": {
+          "one_year": 12.8,
+          "three_years": 8.5,
+          "five_years": 5.1
+        },
+        "investment": {
+          "invested_amount": 2000,
+          "current_value": 2450,
+          "total_gain": 450,
+          "percentage_loss": 22.5
+        },
+        "actions": {
+          "sell": true,
+          "invest_more": true
+        }
+      },
+      {
+        "fund_name": "SBI Bluechip Fund Direct Growth",
+        "rating": 4,
+        "returns": {
+          "one_year": 14.2,
+          "three_years": 10.8,
+          "five_years": 7.5
+        },
+        "investment": {
+          "invested_amount": 5000,
+          "current_value": 6200,
+          "total_gain": 1200,
+          "percentage_loss": 24
+        },
+        "actions": {
+          "sell": true,
+          "invest_more": true
+        }
+      }
+    ],
+    "all_funds": [
+      {
+        "fund_name": "HDFC Small Cap Direct Growth",
+        "rating": 3,
+        "returns": {
+          "one_year": 12.8,
+          "three_years": 8.5,
+          "five_years": 5.1
+        },
+        "investment": {
+          "invested_amount": 2000,
+          "current_value": 2450,
+          "total_gain": 450,
+          "percentage_loss": 22.5
+        },
+        "actions": {
+          "sell": true,
+          "invest_more": true
+        }
+      },
+      {
+        "fund_name": "SBI Bluechip Fund Direct Growth",
+        "rating": 4,
+        "returns": {
+          "one_year": 14.2,
+          "three_years": 10.8,
+          "five_years": 7.5
+        },
+        "investment": {
+          "invested_amount": 5000,
+          "current_value": 6200,
+          "total_gain": 1200,
+          "percentage_loss": 24
+        },
+        "actions": {
+          "sell": true,
+          "invest_more": true
+        }
+      },
+      {
+        "fund_name": "Axis Long Term Equity Fund Direct Growth",
+        "rating": 5,
+        "returns": {
+          "one_year": 16.5,
+          "three_years": 12.2,
+          "five_years": 9.8
+        },
+        "investment": {
+          "invested_amount": 0,
+          "current_value": 0,
+          "total_gain": 0,
+          "percentage_loss": 0
+        },
+        "actions": {
+          "sell": false,
+          "invest_more": true
+        }
+      },
+      {
+        "fund_name": "ICICI Prudential Value Discovery Fund",
+        "rating": 4,
+        "returns": {
+          "one_year": 11.3,
+          "three_years": 9.1,
+          "five_years": 7.0
+        },
+        "investment": {
+          "invested_amount": 0,
+          "current_value": 0,
+          "total_gain": 0,
+          "percentage_loss": 0
+        },
+        "actions": {
+          "sell": false,
+          "invest_more": true
+        }
+      }
+    ]
+  }
+  

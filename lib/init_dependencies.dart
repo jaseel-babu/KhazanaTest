@@ -9,11 +9,17 @@ import 'package:khazana_fintech_task/features/auth/domain/usecases/logout.dart';
 import 'package:khazana_fintech_task/features/auth/domain/usecases/user_sign_in.dart';
 import 'package:khazana_fintech_task/features/auth/domain/usecases/user_sign_up.dart';
 import 'package:khazana_fintech_task/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:khazana_fintech_task/features/dashboard/data/datasources/mutual_fund_local_data_source.dart';
+import 'package:khazana_fintech_task/features/dashboard/data/repository/mutual_fund_repository_impl.dart';
+import 'package:khazana_fintech_task/features/dashboard/domain/repository/mutual_fund_repository.dart';
+import 'package:khazana_fintech_task/features/dashboard/domain/usecases/get_all_fund.dart';
+import 'package:khazana_fintech_task/features/dashboard/presentation/bloc/mutualfund%20bloc/mutual_fund_bloc.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 final serviceLocator = GetIt.instance;
 Future<void> initDependencies() async {
   _initAuth();
+  _initMutuaFund();
 
   final supabase = await Supabase.initialize(
     url: AppSecreates.supabaseUrl,
@@ -57,20 +63,47 @@ void _initAuth() {
         serviceLocator(),
       ),
     )
-    //usecase 
-     ..registerFactory(
+    //usecase
+    ..registerFactory(
       () => CurrentUser(
         serviceLocator(),
       ),
-    ) //usecase 
-     ..registerFactory(
+    ) //usecase
+    ..registerFactory(
       () => Logout(
         serviceLocator(),
       ),
     )
     //Bloc
     ..registerLazySingleton(() => AuthBloc(
-          userSignUp: serviceLocator(),
-          userSignIn: serviceLocator(),currentUser: serviceLocator(),logout: serviceLocator()
-        ));
+        userSignUp: serviceLocator(),
+        userSignIn: serviceLocator(),
+        currentUser: serviceLocator(),
+        logout: serviceLocator()));
+}
+void _initMutuaFund() {
+  //DataSource
+  serviceLocator
+    ..registerFactory<MutualFundLocalDataSource>(
+      () => MutualFundLocalDataSourceImpl(
+
+      ),
+    )
+
+   
+    //Repository
+    ..registerFactory<MutualFundRepository>(
+      () => MutualFundRepositoryImpl(
+          mutualFundLocalDataSource: serviceLocator(),
+        ),
+    )
+    //Usecase
+    ..registerFactory(
+      () => GetAllFundsUseCase(
+        serviceLocator(),
+      ),
+    ) 
+    //Bloc
+    ..registerLazySingleton(() => MutualFundBloc(
+       getAllFundsUseCase: serviceLocator()));
 }

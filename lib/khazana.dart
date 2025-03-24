@@ -4,6 +4,7 @@ import 'package:khazana_fintech_task/core/constant/config/routes/app_pages.dart'
 import 'package:khazana_fintech_task/core/constant/config/routes/app_routes.dart';
 import 'package:khazana_fintech_task/core/constant/theme/theme.dart';
 import 'package:khazana_fintech_task/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:khazana_fintech_task/features/dashboard/presentation/bloc/mutualfund%20bloc/mutual_fund_bloc.dart';
 import 'package:khazana_fintech_task/init_dependencies.dart';
 
 class Khazana extends StatefulWidget {
@@ -25,6 +26,8 @@ class _KhazanaState extends State<Khazana> {
       providers: [
         BlocProvider(
           create: (_) => serviceLocator<AuthBloc>(),
+        ),        BlocProvider(
+          create: (_) => serviceLocator<MutualFundBloc>(),
         ),
       ],
       child: BlocProvider(

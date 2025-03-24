@@ -31,6 +31,7 @@ class _SignupPageState extends State<SignupPage> with ValidationMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: BlocConsumer<AuthBloc, AuthState>(
@@ -39,7 +40,12 @@ class _SignupPageState extends State<SignupPage> with ValidationMixin {
               showSnackBar(context, state.message);
             }
             if (state is AuthSuccessState) {
-              Navigator.pushReplacementNamed(context, AppRoutes.homePage);
+              Navigator.pushNamedAndRemoveUntil<dynamic>(
+                context,
+                AppRoutes.homePage,
+                (route) =>
+                    false, //if you want to disable back feature set to false
+              );
             }
           },
           builder: (context, state) {
