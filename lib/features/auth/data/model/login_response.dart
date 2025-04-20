@@ -10,6 +10,7 @@ class LoginResponseModel extends LoginResponseEntity {
       sessionModel: map['session'],
       user: map['user']);
   }
+
    LoginResponseModel copyWith({
     Session? session,
   User? user,
