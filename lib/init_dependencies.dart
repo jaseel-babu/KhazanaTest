@@ -57,13 +57,13 @@ void _initAuth() {
       () => UserSignUp(
         serviceLocator(),
       ),
-    ) //Usecase
+    ) 
     ..registerFactory(
       () => UserSignIn(
         serviceLocator(),
       ),
     )
-    //usecase
+    
     ..registerFactory(
       () => CurrentUser(
         serviceLocator(),
